@@ -1434,7 +1434,7 @@
        <enum>QLCDNumber::Flat</enum>
       </property>
       <property name="value" stdset="0">
-       <double>5.642000000000000</double>
+       <double>6.000000000000000</double>
       </property>
       <property name="intValue" stdset="0">
        <number>6</number>
@@ -1453,7 +1453,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/Main/Me at the Grand Canyon.jpg</pixmap>
+       <pixmap>:/Main/Me at the Grand Canyon.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -1467,14 +1467,29 @@
      <widget class="QPushButton" name="btnOff">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>130</y>
-        <width>75</width>
-        <height>23</height>
+        <x>110</x>
+        <y>200</y>
+        <width>71</width>
+        <height>51</height>
        </rect>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>71</width>
+        <height>51</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>71</width>
+        <height>51</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/main/phone.png);</string>
+      </property>
       <property name="text">
-       <string>LED Off</string>
+       <string/>
       </property>
      </widget>
      <widget class="QPushButton" name="btnOn">
@@ -1488,6 +1503,44 @@
       </property>
       <property name="text">
        <string>LED On</string>
+      </property>
+     </widget>
+     <widget class="QDialogButtonBox" name="buttonBox">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>280</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>31</width>
+        <height>31</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="icons/icons.qrc">:/main/calendar.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -1527,8 +1580,8 @@
   </widget>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/Main/Space Invaders.jpg</normaloff>:/Main/Space Invaders.jpg</iconset>
+    <iconset resource="icons/icons.qrc">
+     <normaloff>:/main/alert round.png</normaloff>:/main/alert round.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -1551,7 +1604,7 @@
   </action>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="icons/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
