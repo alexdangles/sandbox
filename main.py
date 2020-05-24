@@ -4,8 +4,9 @@ import sys
 
 from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
 
-from Dialog import Ui_Dialog
-from MainWindow import Ui_MainWindow
+# Qt Windows
+from home import Ui_Home
+from dialog import Ui_Dialog
 
 pi = "alex@raspberrypi"
 
@@ -23,27 +24,21 @@ def SSH(host, command):
                      stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
 
-def GetRnd():
-    ui.lcd1.display(random.random() * 6743.3363)
-
-
 # Setup main window
-app = QtWidgets.QApplication(sys.argv)
-MainWindow = QtWidgets.QMainWindow()
+App = QtWidgets.QApplication(sys.argv)
+Home = QtWidgets.QMainWindow()
+UI = Ui_Home()
+UI.setupUi(Home)
 Dialog = QtWidgets.QDialog()
-di = Ui_Dialog()
-di.setupUi(Dialog)
-ui = Ui_MainWindow()
-ui.setupUi(MainWindow)
+dia = Ui_Dialog()
+dia.setupUi(Dialog)
 
 # Widget stuff
-ui.btnOn.clicked.connect(LEDOn)
-ui.btnOff.clicked.connect(LEDOff)
-ui.actionQuit.triggered.connect(app.exit)
-ui.dial.valueChanged.connect(GetRnd)
-ui.label.setPixmap(QtGui.QPixmap(":/Main/My Car.jpg"))
-ui.actionAbout.triggered.connect(Dialog.show)
+UI.btnLEDOn.clicked.connect(LEDOn)
+UI.btnLEDOff.clicked.connect(LEDOff)
+UI.actionQuit.triggered.connect(App.exit)
+UI.actionAbout.triggered.connect(Dialog.show)
 
 # Load main window
-MainWindow.show()
-sys.exit(app.exec_())
+Home.show()
+sys.exit(App.exec_())

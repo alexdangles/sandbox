@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="main">
+    <file>power.png</file>
+    <file>quit.png</file>
     <file>add user.png</file>
     <file>alert round.png</file>
     <file>alert triangle.png</file>
