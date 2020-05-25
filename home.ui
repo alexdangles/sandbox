@@ -44,7 +44,7 @@
      <string notr="true">background-color: rgb(50, 150, 150);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabLED">
      <attribute name="title">
@@ -79,7 +79,7 @@ selection-background-color: rgb(170, 85, 255);</string>
        <string>ON</string>
       </property>
       <property name="icon">
-       <iconset resource="icons/icons.qrc">
+       <iconset>
         <normaloff>:/main/power.png</normaloff>:/main/power.png</iconset>
       </property>
       <property name="autoDefault">
@@ -105,8 +105,7 @@ selection-background-color: rgb(170, 85, 255);</string>
        <bool>false</bool>
       </property>
       <property name="toolTip">
-       <string>Turn off LED lights
-</string>
+       <string>Turn off LED lights</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -119,7 +118,7 @@ background-color: rgb(195, 69, 69);</string>
        <string>OFF</string>
       </property>
       <property name="icon">
-       <iconset resource="icons/icons.qrc">
+       <iconset>
         <normaloff>:/main/power.png</normaloff>:/main/power.png</iconset>
       </property>
       <property name="autoDefault">
@@ -140,21 +139,21 @@ background-color: rgb(195, 69, 69);</string>
      <widget class="QDial" name="dial">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>71</width>
-        <height>71</height>
+        <x>90</x>
+        <y>40</y>
+        <width>41</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>71</width>
-        <height>71</height>
+        <width>41</width>
+        <height>41</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 170, 0);
-border-color: rgb(85, 170, 127);</string>
+       <string notr="true">background-color: rgb(0, 113, 170);
+background-color: rgb(255, 255, 127);</string>
       </property>
       <property name="tracking">
        <bool>false</bool>
@@ -188,6 +187,10 @@ border-color: rgb(85, 170, 127);</string>
     <property name="title">
      <string>File</string>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/main/folder.png</normaloff>:/main/folder.png</iconset>
+    </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionQuit"/>
@@ -196,10 +199,18 @@ border-color: rgb(85, 170, 127);</string>
     <property name="title">
      <string>View</string>
     </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/main/phone.png</normaloff>:/main/phone.png</iconset>
+    </property>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/main/user.png</normaloff>:/main/user.png</iconset>
     </property>
     <addaction name="actionAbout"/>
    </widget>
@@ -209,7 +220,7 @@ border-color: rgb(85, 170, 127);</string>
   </widget>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="icons/icons.qrc">
+    <iconset>
      <normaloff>:/main/speech.png</normaloff>:/main/speech.png</iconset>
    </property>
    <property name="text">
@@ -218,7 +229,7 @@ border-color: rgb(85, 170, 127);</string>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="icons/icons.qrc">
+    <iconset>
      <normaloff>:/main/open folder.png</normaloff>:/main/open folder.png</iconset>
    </property>
    <property name="text">
@@ -233,7 +244,7 @@ border-color: rgb(85, 170, 127);</string>
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="icons/icons.qrc">
+    <iconset>
      <normaloff>:/main/save.png</normaloff>:/main/save.png</iconset>
    </property>
    <property name="text">
@@ -242,7 +253,7 @@ border-color: rgb(85, 170, 127);</string>
   </action>
   <action name="actionQuit">
    <property name="icon">
-    <iconset resource="icons/icons.qrc">
+    <iconset>
      <normaloff>:/main/alert round.png</normaloff>:/main/alert round.png</iconset>
    </property>
    <property name="text">
@@ -251,7 +262,7 @@ border-color: rgb(85, 170, 127);</string>
   </action>
  </widget>
  <resources>
-  <include location="icons/icons.qrc"/>
+  <include location="res.qrc"/>
  </resources>
  <connections/>
 </ui>

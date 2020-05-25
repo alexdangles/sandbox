@@ -1,6 +1,6 @@
 import random
 import subprocess
-import sys
+import sys, os
 
 from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
 
@@ -9,7 +9,6 @@ from home import Ui_Home
 from dialog import Ui_Dialog
 
 pi = "alex@raspberrypi"
-
 
 def LEDOn():
     SSH(pi, "~/Scripts/home_arduino.py on")
@@ -23,12 +22,11 @@ def SSH(host, command):
     subprocess.Popen("ssh {0} {1}".format(host, command), shell=True,
                      stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
-
 # Setup main window
-App = QtWidgets.QApplication(sys.argv)
-Home = QtWidgets.QMainWindow()
+app = QtWidgets.QApplication(sys.argv)
+home = QtWidgets.QMainWindow()
 UI = Ui_Home()
-UI.setupUi(Home)
+UI.setupUi(home)
 Dialog = QtWidgets.QDialog()
 dia = Ui_Dialog()
 dia.setupUi(Dialog)
@@ -36,9 +34,9 @@ dia.setupUi(Dialog)
 # Widget stuff
 UI.btnLEDOn.clicked.connect(LEDOn)
 UI.btnLEDOff.clicked.connect(LEDOff)
-UI.actionQuit.triggered.connect(App.exit)
+UI.actionQuit.triggered.connect(app.exit)
 UI.actionAbout.triggered.connect(Dialog.show)
 
 # Load main window
-Home.show()
-sys.exit(App.exec_())
+home.show()
+sys.exit(app.exec_())

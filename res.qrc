@@ -1,0 +1,66 @@
+<RCC>
+  <qresource prefix="main">
+    <file>icons/add user.png</file>
+    <file>icons/alert round.png</file>
+    <file>icons/alert triangle.png</file>
+    <file>icons/back.png</file>
+    <file>icons/calendar.png</file>
+    <file>icons/cart.png</file>
+    <file>icons/chat.png</file>
+    <file>icons/check.png</file>
+    <file>icons/clip.png</file>
+    <file>icons/clock.png</file>
+    <file>icons/document.png</file>
+    <file>icons/edit.png</file>
+    <file>icons/folder.png</file>
+    <file>icons/group.png</file>
+    <file>icons/home.png</file>
+    <file>icons/image.png</file>
+    <file>icons/images.png</file>
+    <file>icons/info.png</file>
+    <file>icons/key.png</file>
+    <file>icons/like.png</file>
+    <file>icons/link.png</file>
+    <file>icons/list.png</file>
+    <file>icons/location.png</file>
+    <file>icons/locked.png</file>
+    <file>icons/loud speaket.png</file>
+    <file>icons/low speaker.png</file>
+    <file>icons/mail.png</file>
+    <file>icons/map.png</file>
+    <file>icons/media.png</file>
+    <file>icons/menu.png</file>
+    <file>icons/mic.png</file>
+    <file>icons/mute.png</file>
+    <file>icons/next.png</file>
+    <file>icons/notify dot.png</file>
+    <file>icons/notify off.png</file>
+    <file>icons/notify.png</file>
+    <file>icons/open folder.png</file>
+    <file>icons/open mail.png</file>
+    <file>icons/pc.png</file>
+    <file>icons/phone.png</file>
+    <file>icons/pin.png</file>
+    <file>icons/pinned.png</file>
+    <file>icons/power.png</file>
+    <file>icons/print.png</file>
+    <file>icons/quit.png</file>
+    <file>icons/remove user.png</file>
+    <file>icons/save.png</file>
+    <file>icons/search.png</file>
+    <file>icons/send.png</file>
+    <file>icons/settings.png</file>
+    <file>icons/shop.png</file>
+    <file>icons/shortcut back.png</file>
+    <file>icons/shortcut forward.png</file>
+    <file>icons/speech.png</file>
+    <file>icons/star.png</file>
+    <file>icons/target.png</file>
+    <file>icons/trash.png</file>
+    <file>icons/unlock.png</file>
+    <file>icons/user.png</file>
+    <file>icons/write.png</file>
+    <file>icons/zoom in.png</file>
+    <file>icons/zoom out.png</file>
+  </qresource>
+</RCC>
