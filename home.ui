@@ -44,7 +44,7 @@
      <string notr="true">background-color: rgb(50, 150, 150);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabLED">
      <attribute name="title">
@@ -79,8 +79,8 @@ selection-background-color: rgb(170, 85, 255);</string>
        <string>ON</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/main/power.png</normaloff>:/main/power.png</iconset>
+       <iconset resource="res.qrc">
+        <normaloff>:/main/icons/power.png</normaloff>:/main/icons/power.png</iconset>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -118,8 +118,8 @@ background-color: rgb(195, 69, 69);</string>
        <string>OFF</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/main/power.png</normaloff>:/main/power.png</iconset>
+       <iconset resource="res.qrc">
+        <normaloff>:/main/icons/power.png</normaloff>:/main/icons/power.png</iconset>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -220,8 +220,8 @@ background-color: rgb(255, 255, 127);</string>
   </widget>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
-     <normaloff>:/main/speech.png</normaloff>:/main/speech.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/alert round.png</normaloff>:/main/icons/alert round.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -229,8 +229,8 @@ background-color: rgb(255, 255, 127);</string>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset>
-     <normaloff>:/main/open folder.png</normaloff>:/main/open folder.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/open folder.png</normaloff>:/main/icons/open folder.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -244,8 +244,8 @@ background-color: rgb(255, 255, 127);</string>
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset>
-     <normaloff>:/main/save.png</normaloff>:/main/save.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/save.png</normaloff>:/main/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -253,8 +253,8 @@ background-color: rgb(255, 255, 127);</string>
   </action>
   <action name="actionQuit">
    <property name="icon">
-    <iconset>
-     <normaloff>:/main/alert round.png</normaloff>:/main/alert round.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/quit.png</normaloff>:/main/icons/quit.png</iconset>
    </property>
    <property name="text">
     <string>Quit</string>
