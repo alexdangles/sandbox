@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Projects\Learning\home.ui'
+# Form implementation generated from reading ui file 'd:\Projects\Learning\Home.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.2
 #
@@ -69,6 +69,23 @@ class Ui_Home(object):
         self.dial.setWrapping(False)
         self.dial.setNotchesVisible(False)
         self.dial.setObjectName("dial")
+        self.comboBox = QtWidgets.QComboBox(self.tabCtl)
+        self.comboBox.setGeometry(QtCore.QRect(230, 160, 60, 22))
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.label = QtWidgets.QLabel(self.tabCtl)
+        self.label.setGeometry(QtCore.QRect(330, 70, 181, 201))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("d:\\Projects\\Learning\\../../Pictures/Memes/Happy birthday - Mr Chow.jpg"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
         self.tabWidget.addTab(self.tabCtl, "")
         Home.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Home)
@@ -134,6 +151,14 @@ class Ui_Home(object):
         self.btnLEDOff.setToolTip(_translate("Home", "Turn off LED lights"))
         self.btnLEDOff.setText(_translate("Home", "OFF"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabLED), _translate("Home", "LED"))
+        self.comboBox.setItemText(0, _translate("Home", "gasdkjakl"))
+        self.comboBox.setItemText(1, _translate("Home", "gsagag"))
+        self.comboBox.setItemText(2, _translate("Home", "ahhf"))
+        self.comboBox.setItemText(3, _translate("Home", "hfdah"))
+        self.comboBox.setItemText(4, _translate("Home", "ah"))
+        self.comboBox.setItemText(5, _translate("Home", "ahfdh"))
+        self.comboBox.setItemText(6, _translate("Home", "ah"))
+        self.comboBox.setItemText(7, _translate("Home", "New Item"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabCtl), _translate("Home", "Controls"))
         self.menuFile.setTitle(_translate("Home", "File"))
         self.menuView.setTitle(_translate("Home", "View"))
