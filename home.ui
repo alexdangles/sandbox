@@ -24,14 +24,11 @@
     <bold>true</bold>
    </font>
   </property>
-  <property name="windowTitle">
-   <string>Learning Qt</string>
-  </property>
   <property name="tabShape">
    <enum>QTabWidget::Triangular</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="tab1">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -80,7 +77,7 @@ selection-background-color: rgb(170, 85, 255);</string>
       </property>
       <property name="icon">
        <iconset resource="res.qrc">
-        <normaloff>:/main/icons/power.png</normaloff>:/main/icons/power.png</iconset>
+        <normaloff>:/icons/power.png</normaloff>:/icons/power.png</iconset>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -119,7 +116,7 @@ background-color: rgb(195, 69, 69);</string>
       </property>
       <property name="icon">
        <iconset resource="res.qrc">
-        <normaloff>:/main/icons/power.png</normaloff>:/main/icons/power.png</iconset>
+        <normaloff>:/icons/power.png</normaloff>:/icons/power.png</iconset>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -136,13 +133,13 @@ background-color: rgb(195, 69, 69);</string>
      <attribute name="title">
       <string>Controls</string>
      </attribute>
-     <widget class="QDial" name="dial">
+     <widget class="QDial" name="dial1">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>40</y>
-        <width>41</width>
-        <height>41</height>
+        <x>30</x>
+        <y>20</y>
+        <width>111</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -151,12 +148,14 @@ background-color: rgb(195, 69, 69);</string>
         <height>41</height>
        </size>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 113, 170);
-background-color: rgb(255, 255, 127);</string>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <property name="tracking">
        <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
       <property name="invertedAppearance">
        <bool>false</bool>
@@ -168,7 +167,7 @@ background-color: rgb(255, 255, 127);</string>
        <bool>false</bool>
       </property>
       <property name="notchesVisible">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox">
@@ -215,29 +214,34 @@ background-color: rgb(255, 255, 127);</string>
         <string>ah</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>New Item</string>
-       </property>
-      </item>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>70</y>
-        <width>181</width>
-        <height>201</height>
+        <x>300</x>
+        <y>40</y>
+        <width>251</width>
+        <height>251</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../Pictures/Memes/Happy birthday - Mr Chow.jpg</pixmap>
+       <pixmap>../../Pictures/Memes/Rock in a pond.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QAxWidget" name="axWidget">
+      <property name="geometry" stdset="0">
+       <rect>
+        <x>70</x>
+        <y>160</y>
+        <width>80</width>
+        <height>70</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -290,7 +294,7 @@ background-color: rgb(255, 255, 127);</string>
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/main/icons/alert round.png</normaloff>:/main/icons/alert round.png</iconset>
+     <normaloff>:/icons/alert round.png</normaloff>:/icons/alert round.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -299,7 +303,7 @@ background-color: rgb(255, 255, 127);</string>
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/main/icons/open folder.png</normaloff>:/main/icons/open folder.png</iconset>
+     <normaloff>:/icons/open folder.png</normaloff>:/icons/open folder.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -314,7 +318,7 @@ background-color: rgb(255, 255, 127);</string>
   <action name="actionSave">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/main/icons/save.png</normaloff>:/main/icons/save.png</iconset>
+     <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -323,13 +327,20 @@ background-color: rgb(255, 255, 127);</string>
   <action name="actionQuit">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/main/icons/quit.png</normaloff>:/main/icons/quit.png</iconset>
+     <normaloff>:/icons/alert triangle.png</normaloff>:/icons/alert triangle.png</iconset>
    </property>
    <property name="text">
     <string>Quit</string>
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QAxWidget</class>
+   <extends>QWidget</extends>
+   <header>qaxwidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="res.qrc"/>
  </resources>

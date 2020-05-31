@@ -13,20 +13,23 @@ pi = "alex@raspberrypi"
 
 
 def LEDOn():
+    """ Turn on LED lights """
     SSH(pi, "~/Scripts/home_arduino.py on")
 
 
 def LEDOff():
+    """ Turn off LED lights """
     SSH(pi, "~/Scripts/home_arduino.py off")
 
 
 def SSH(host, command):
+    """ Send SSH command """
     subprocess.Popen("ssh {0} {1}".format(host, command), shell=True,
                      stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
 
 
 # Setup main window
-Qapp = QtWidgets.QApplication(sys.argv)
+App = QtWidgets.QApplication(sys.argv)
 Qhome = QtWidgets.QMainWindow()
 home = Ui_Home()
 home.setupUi(Qhome)
@@ -37,9 +40,12 @@ dialog.setupUi(Qdialog)
 # Widget stuff
 home.btnLEDOn.clicked.connect(LEDOn)
 home.btnLEDOff.clicked.connect(LEDOff)
-home.actionQuit.triggered.connect(Qapp.exit)
+home.actionQuit.triggered.connect(App.exit)
 home.actionAbout.triggered.connect(Qdialog.show)
+dialog.lblMessage.setText("hdlgsj")
+Qdialog.setWindowState()
 
 # Load main window
 Qhome.show()
-sys.exit(Qapp.exec_())
+Qhome.setWindowTitle("How are you today?")
+sys.exit(App.exec_())

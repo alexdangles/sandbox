@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="main">
+  <qresource>
     <file>icons/add user.png</file>
     <file>icons/alert round.png</file>
     <file>icons/alert triangle.png</file>
