@@ -1,3 +1,4 @@
 {
-    "pi": "alex@pi"
+    "pi": "alex@pi",
+    "led state": "on"
 }

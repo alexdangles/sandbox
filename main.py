@@ -1,7 +1,8 @@
 import os
 import random
-import subprocess
+from subprocess import Popen, PIPE
 import sys
+from sys import stderr
 
 from easysettings import load_json_settings
 from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
@@ -10,6 +11,7 @@ from dialog import Ui_Dialog
 from home import Ui_Home
 
 js = load_json_settings('settings.json')
+js['pi'] = 'alex@pi'
 pi = js['pi']
 
 
@@ -17,22 +19,30 @@ def LEDOn():
     """
     Turn on LED lights
     """
-    Sh(pi, "~/scripts/home_arduino.py on")
+    print(Sh(pi, "~/scripts/home_arduino.py on"))
+    js['led state'] = 'on'
+    js.save()
 
 
 def LEDOff():
     """
     Turn off LED lights
     """
-    Sh(pi, "~/scripts/home_arduino.py off")
+    print(Sh(pi, "~/scripts/home_arduino.py off"))
+    js['led state'] = 'off'
+    js.save()
 
 
 def Sh(host, command):
     """
     Send shell command
     """
-    subprocess.Popen("ssh {0} {1}".format(host, command), shell=True,
-                     stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    out, err = Popen(["ssh", "%s" % host, command],
+                     stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+    if err == []:
+        return err
+    else:
+        return out
 
 
 # Setup main window
@@ -65,7 +75,4 @@ home.actionAbout.triggered.connect(Qdialog.show)
 # Load main window
 Qhome.show()
 Qhome.setWindowTitle("How are you today?")
-
-# Exit
-js.save(sort_keys=True)
 sys.exit(Qapp.exec_())
