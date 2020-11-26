@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Projects\Learning\Home.ui'
+# Form implementation generated from reading ui file 'd:\learning\home.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.2
 #
@@ -85,11 +85,11 @@ class Ui_Home(object):
         self.axWidget.setProperty("geometry", QtCore.QRect(20, 120, 80, 70))
         self.axWidget.setObjectName("axWidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tabCtl)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(280, 70, 160, 80))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(250, 70, 160, 80))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.content_plot = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.content_plot.setContentsMargins(0, 0, 0, 0)
+        self.content_plot.setObjectName("content_plot")
         self.tab1.addTab(self.tabCtl, "")
         self.gridLayout_2.addWidget(self.tab1, 0, 0, 1, 1)
         Home.setCentralWidget(self.centralwidget)
