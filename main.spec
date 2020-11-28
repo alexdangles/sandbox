@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['D:\\learning'],
+             pathex=['D:\\Learning'],
              binaries=[],
              datas=[('settings.json', '.')],
              hiddenimports=[],

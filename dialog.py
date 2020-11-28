@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\learning\dialog.ui'
+# Form implementation generated from reading ui file 'd:\Learning\dialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.2
 #
@@ -33,4 +33,4 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         self.lblMessage.setText(_translate("Dialog", "Question"))
-import res
+import res_rc

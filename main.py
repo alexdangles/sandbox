@@ -1,78 +1,75 @@
 import os
 import random
-from subprocess import Popen, PIPE
 import sys
-from sys import stderr
-
-from easysettings import load_json_settings
+from helper import *
 from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
 
+import res_rc
 from dialog import Ui_Dialog
 from home import Ui_Home
+from plotter import *
 
-js = load_json_settings('settings.json')
-js['pi'] = 'alex@pi'
-pi = js['pi']
+
+config = load_json_settings('config.json')
+config['pi'] = 'alex@pi'
+pi = config['pi']
+
+
+def SetNewIcon():
+    i = QtGui.QIcon()
+    i.addPixmap(QtGui.QPixmap(":/main/icons/alert round.png"))
+    home.btnLEDOff.setIcon(i)
 
 
 def LEDOn():
     """
     Turn on LED lights
     """
-    print(Sh(pi, "~/scripts/home_arduino.py on"))
-    js['led state'] = 'on'
-    js.save()
+    print(Ssh(pi, "~/scripts/home_arduino.py on"))
+    config['led state'] = 'on'
 
 
 def LEDOff():
     """
     Turn off LED lights
     """
-    print(Sh(pi, "~/scripts/home_arduino.py off"))
-    js['led state'] = 'off'
-    js.save()
+    print(Ssh(pi, "~/scripts/home_arduino.py off"))
+    config['led state'] = 'off'
 
 
-def Sh(host, command):
+def Plot():
     """
-    Send shell command
+    Plot something
     """
-    out, err = Popen(["ssh", "%s" % host, command],
-                     stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
-    if err == []:
-        return err
-    else:
-        return out
+    fig = plt.figure(FigureClass=MyFigure)
+    fig.suptitle('dink')
+    ax = fig.subplots(1, 1)
+    ax.set_title('bar graphs')
+    plot_bar_graphs(ax, data)
+    plt.show()
 
 
-# Setup main window
-Qapp = QtWidgets.QApplication(sys.argv)
-Qhome = QtWidgets.QMainWindow()
-home = Ui_Home()
-home.setupUi(Qhome)
-Qdialog = QtWidgets.QDialog()
-dialog = Ui_Dialog()
-dialog.setupUi(Qdialog)
+if __name__ == "__main__":
+    # Setup main window
+    Qapp = QtWidgets.QApplication(sys.argv)
+    Qhome = QtWidgets.QMainWindow()
+    home = Ui_Home()
+    home.setupUi(Qhome)
 
-columns = ('skdjgl', 'sdag', 'hf', 'sdf')
-rows = [100, 50]
-data = [[66386, 174296,  75131, 577908],
-        [58230, 381139,  78045,  99308],
-        ]
+    Qdialog = QtWidgets.QDialog()
+    dialog = Ui_Dialog()
+    dialog.setupUi(Qdialog)
 
-columns1 = ('skdjgl', 'klsdjgklda', 'lagkjl')
-rows1 = ['what']
-data1 = [[66386, 174296,  75131, 577908,  32015]
-         ]
-
-
-# Widget stuff
-home.btnLEDOn.clicked.connect(LEDOn)
-home.btnLEDOff.clicked.connect(LEDOff)
-home.actionQuit.triggered.connect(Qapp.exit)
-home.actionAbout.triggered.connect(Qdialog.show)
-
-# Load main window
-Qhome.show()
-Qhome.setWindowTitle("How are you today?")
-sys.exit(Qapp.exec_())
+    # Widget stuff
+    home.btnLEDOn.clicked.connect(LEDOn)
+    home.btnLEDOff.clicked.connect(LEDOff)
+    home.actionQuit.triggered.connect(Qapp.exit)
+    home.actionAbout.triggered.connect(Qdialog.show)
+    home.actionOpen.triggered.connect(SetNewIcon)
+    home.actionSave.triggered.connect(Plot)
+    
+    # Load main window
+    Qhome.setWindowTitle("Learning some Qt")
+    Qhome.show()
+    Qapp.exec_()
+    config.save(sort_keys=True)

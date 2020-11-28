@@ -1,28 +1,25 @@
 import matplotlib.pyplot as plt
 import matplotlib.style as style
-from matplotlib.figure import Figure
 import numpy as np
+from matplotlib import use
+from matplotlib.figure import Figure
+
+use("Qt5Agg")
+np.random.seed(19680801)
+data = np.random.RandomState(96917002)
 
 
 class MyFigure(Figure):
-    def __init__(self, *args, figtitle='hi mom', **kwargs):
-        """
-        custom kwarg figtitle is a figure title
-        """
+    def __init__(self, *args, **kwargs):
         style.use('seaborn-whitegrid')
         super().__init__(*args, **kwargs)
-        self.text(0.5, 0.95, figtitle, ha='center')
 
 
-np.random.seed(19680801)
-prng = np.random.RandomState(96917002)
-
-
-def plot_scatter(ax, prng, nb_samples=100):
+def plot_scatter(ax, data, nb_samples=100):
     """Scatter plot.
     """
     for mu, sigma, marker in [(-.5, 0.75, 'o'), (0.75, 1., 's')]:
-        x, y = prng.normal(loc=mu, scale=sigma, size=(2, nb_samples))
+        x, y = data.normal(loc=mu, scale=sigma, size=(2, nb_samples))
         ax.plot(x, y, ls='none', marker=marker)
     ax.set_xlabel('X-label')
     return ax
@@ -41,11 +38,11 @@ def plot_colored_sinusoidal_lines(ax):
     return ax
 
 
-def plot_bar_graphs(ax, prng, min_value=5, max_value=25, nb_samples=5):
+def plot_bar_graphs(ax, data, min_value=5, max_value=25, nb_samples=20):
     """Plot two bar graphs side by side, with letters as x-tick labels.
     """
     x = np.arange(nb_samples)
-    ya, yb = prng.randint(min_value, max_value, size=(2, nb_samples))
+    ya, yb = data.randint(min_value, max_value, size=(2, nb_samples))
     width = 0.25
     ax.bar(x, ya, width)
     ax.bar(x + width, yb, width, color='C2')
@@ -54,7 +51,7 @@ def plot_bar_graphs(ax, prng, min_value=5, max_value=25, nb_samples=5):
     return ax
 
 
-def plot_colored_circles(ax, prng, nb_samples=15):
+def plot_colored_circles(ax, data, nb_samples=15):
     """Plot circle patches.
 
     NB: draws a fixed amount of samples, rather than using the length of
@@ -62,7 +59,7 @@ def plot_colored_circles(ax, prng, nb_samples=15):
     of colors.
     """
     for sty_dict, j in zip(plt.rcParams['axes.prop_cycle'], range(nb_samples)):
-        ax.add_patch(plt.Circle(prng.normal(scale=3, size=2),
+        ax.add_patch(plt.Circle(data.normal(scale=3, size=2),
                                 radius=1.0, color=sty_dict['color']))
     # Force the limits to be the same across the styles (because different
     # styles may have different numbers of available colors).
@@ -72,10 +69,10 @@ def plot_colored_circles(ax, prng, nb_samples=15):
     return ax
 
 
-def plot_image_and_patch(ax, prng, size=(20, 20)):
+def plot_image_and_patch(ax, data, size=(20, 20)):
     """Plot an image with random values and superimpose a circular patch.
     """
-    values = prng.random_sample(size=size)
+    values = data.random_sample(size=size)
     ax.imshow(values, interpolation='none')
     c = plt.Circle((5, 5), radius=5, label='patch')
     ax.add_patch(c)
@@ -84,12 +81,12 @@ def plot_image_and_patch(ax, prng, size=(20, 20)):
     ax.set_yticks([])
 
 
-def plot_histograms(ax, prng, nb_samples=10000):
+def plot_histograms(ax, data, nb_samples=10000):
     """Plot 4 histograms and a text annotation.
     """
     params = ((10, 10), (4, 12), (50, 12), (6, 55))
     for a, b in params:
-        values = prng.beta(a, b, size=nb_samples)
+        values = data.beta(a, b, size=nb_samples)
         ax.hist(values, histtype="stepfilled", bins=30,
                 alpha=0.8, density=True)
     # Add a small annotation.
@@ -107,12 +104,9 @@ def plot_histograms(ax, prng, nb_samples=10000):
 
 
 if __name__ == "__main__":
-
     fig = plt.figure(FigureClass=MyFigure)
-    fig.figtitle = 'kgsa'
+    fig.suptitle('dink')
     ax = fig.subplots(1, 1)
-    #plot_bar_graphs(fig.axes[0], prng)
-    #plot_colored_sinusoidal_lines(fig.axes[1])
-    plot_scatter(fig.axes[0], prng)
-    #plot_histograms(fig.axes[3], prng)
+    ax.set_title('bar graphs')
+    plot_bar_graphs(ax, data)
     plt.show()

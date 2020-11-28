@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="gfx">
+  <qresource prefix="main">
     <file>icons/add user.png</file>
     <file>icons/alert round.png</file>
     <file>icons/alert triangle.png</file>
@@ -62,8 +62,5 @@
     <file>icons/write.png</file>
     <file>icons/zoom in.png</file>
     <file>icons/zoom out.png</file>
-  </qresource>
-  <qresource prefix="settings">
-    <file>settings.txt</file>
   </qresource>
 </RCC>

@@ -13,7 +13,7 @@ else:
 from matplotlib.figure import Figure
 
 
-class ApplicationWindow(QtWidgets.QMainWindow):
+class PlotWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self._main = QtWidgets.QWidget()
@@ -45,9 +45,12 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         self._dynamic_ax.plot(t, np.sin(t + time.time()))
         self._dynamic_ax.figure.canvas.draw()
 
-
-if __name__ == "__main__":
+def Main():
     qapp = QtWidgets.QApplication(sys.argv)
-    app = ApplicationWindow()
+    app = PlotWindow()
     app.show()
     qapp.exec_()
+
+
+if __name__ == "__main__":
+    Main()

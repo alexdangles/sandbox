@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>981</width>
-    <height>663</height>
+    <width>1593</width>
+    <height>1057</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -35,7 +35,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="movable">
        <bool>false</bool>
@@ -73,8 +73,8 @@ selection-background-color: rgb(170, 85, 255);</string>
          <string>ON</string>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>:/icons/power.png</normaloff>:/icons/power.png</iconset>
+         <iconset resource="res.qrc">
+          <normaloff>:/main/icons/power.png</normaloff>:/main/icons/power.png</iconset>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -112,8 +112,8 @@ background-color: rgb(195, 69, 69);</string>
          <string>OFF</string>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>:/icons/power.png</normaloff>:/icons/power.png</iconset>
+         <iconset resource="res.qrc">
+          <normaloff>:/main/icons/power.png</normaloff>:/main/icons/power.png</iconset>
         </property>
         <property name="autoDefault">
          <bool>false</bool>
@@ -212,16 +212,6 @@ background-color: rgb(195, 69, 69);</string>
          </property>
         </item>
        </widget>
-       <widget class="QAxWidget" name="axWidget">
-        <property name="geometry" stdset="0">
-         <rect>
-          <x>20</x>
-          <y>120</y>
-          <width>80</width>
-          <height>70</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QWidget" name="verticalLayoutWidget">
         <property name="geometry">
          <rect>
@@ -233,6 +223,87 @@ background-color: rgb(195, 69, 69);</string>
         </property>
         <layout class="QVBoxLayout" name="content_plot"/>
        </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>180</y>
+          <width>621</width>
+          <height>511</height>
+         </rect>
+        </property>
+        <property name="rowCount">
+         <number>60</number>
+        </property>
+        <property name="columnCount">
+         <number>5</number>
+        </property>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <row/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -243,17 +314,13 @@ background-color: rgb(195, 69, 69);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>981</width>
-     <height>22</height>
+     <width>1593</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>:/main/folder.png</normaloff>:/main/folder.png</iconset>
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
@@ -263,18 +330,10 @@ background-color: rgb(195, 69, 69);</string>
     <property name="title">
      <string>View</string>
     </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>:/main/phone.png</normaloff>:/main/phone.png</iconset>
-    </property>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>:/main/user.png</normaloff>:/main/user.png</iconset>
     </property>
     <addaction name="actionAbout"/>
    </widget>
@@ -284,8 +343,8 @@ background-color: rgb(195, 69, 69);</string>
   </widget>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
-     <normaloff>:/icons/alert round.png</normaloff>:/icons/alert round.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/alert round.png</normaloff>:/main/icons/alert round.png</iconset>
    </property>
    <property name="text">
     <string>About</string>
@@ -293,8 +352,8 @@ background-color: rgb(195, 69, 69);</string>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset>
-     <normaloff>:/icons/open folder.png</normaloff>:/icons/open folder.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/open folder.png</normaloff>:/main/icons/open folder.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -308,8 +367,8 @@ background-color: rgb(195, 69, 69);</string>
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset>
-     <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/save.png</normaloff>:/main/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -317,21 +376,14 @@ background-color: rgb(195, 69, 69);</string>
   </action>
   <action name="actionQuit">
    <property name="icon">
-    <iconset>
-     <normaloff>:/icons/alert triangle.png</normaloff>:/icons/alert triangle.png</iconset>
+    <iconset resource="res.qrc">
+     <normaloff>:/main/icons/quit.png</normaloff>:/main/icons/quit.png</iconset>
    </property>
    <property name="text">
     <string>Quit</string>
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QAxWidget</class>
-   <extends>QWidget</extends>
-   <header>qaxwidget.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="res.qrc"/>
  </resources>
