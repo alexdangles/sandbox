@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import matplotlib.style as style
 import numpy as np
-from matplotlib import use
+from matplotlib import rcParams, use
+from matplotlib import colors
 from matplotlib.figure import Figure
 
 use("Qt5Agg")
@@ -12,6 +14,7 @@ data = np.random.RandomState(96917002)
 class MyFigure(Figure):
     def __init__(self, *args, **kwargs):
         style.use('seaborn-whitegrid')
+        rcParams['toolbar'] = 'None'
         super().__init__(*args, **kwargs)
 
 
@@ -21,7 +24,6 @@ def plot_scatter(ax, data, nb_samples=100):
     for mu, sigma, marker in [(-.5, 0.75, 'o'), (0.75, 1., 's')]:
         x, y = data.normal(loc=mu, scale=sigma, size=(2, nb_samples))
         ax.plot(x, y, ls='none', marker=marker)
-    ax.set_xlabel('X-label')
     return ax
 
 
@@ -44,8 +46,8 @@ def plot_bar_graphs(ax, data, min_value=5, max_value=25, nb_samples=20):
     x = np.arange(nb_samples)
     ya, yb = data.randint(min_value, max_value, size=(2, nb_samples))
     width = 0.25
-    ax.bar(x, ya, width)
-    ax.bar(x + width, yb, width, color='C2')
+    ax.bar(x, ya, width, color='C2')
+    ax.bar(x + width, yb, width, color='C6')
     ax.set_xticks(x)
     ax.set_xticklabels(['a', 'b', 'c', 'd', 'e'])
     return ax
@@ -89,6 +91,8 @@ def plot_histograms(ax, data, nb_samples=10000):
         values = data.beta(a, b, size=nb_samples)
         ax.hist(values, histtype="stepfilled", bins=30,
                 alpha=0.8, density=True)
+    
+    
     # Add a small annotation.
     '''
     ax.annotate('Annotation', xy=(0.25, 4.25),
@@ -105,8 +109,11 @@ def plot_histograms(ax, data, nb_samples=10000):
 
 if __name__ == "__main__":
     fig = plt.figure(FigureClass=MyFigure)
-    fig.suptitle('dink')
+    #fig.suptitle('Main window title')
     ax = fig.subplots(1, 1)
-    ax.set_title('bar graphs')
-    plot_bar_graphs(ax, data)
+    ax.set_title('X vs Y')
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    plot_scatter(ax, data)
+    
     plt.show()

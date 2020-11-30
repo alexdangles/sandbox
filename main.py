@@ -13,7 +13,7 @@ from plotter import *
 config = load_json_settings('config.json')
 config['pi'] = 'alex@pi'
 pi = config['pi']
-
+arduino = config['arduino']
 
 def SetNewIcon():
     i = QtGui.QIcon()
@@ -21,20 +21,12 @@ def SetNewIcon():
     home.btnLEDOff.setIcon(i)
 
 
-def LEDOn():
+def LED(cmd):
     """
-    Turn on LED lights
+    Control LED lights
     """
-    print(Ssh(pi, "~/scripts/home_arduino.py on"))
-    config['led state'] = 'on'
-
-
-def LEDOff():
-    """
-    Turn off LED lights
-    """
-    print(Ssh(pi, "~/scripts/home_arduino.py off"))
-    config['led state'] = 'off'
+    print(Ssh(pi, '%s %s' % (arduino, cmd)))
+    config['led state'] = cmd
 
 
 def Plot():
@@ -42,10 +34,12 @@ def Plot():
     Plot something
     """
     fig = plt.figure(FigureClass=MyFigure)
-    fig.suptitle('dink')
+    #fig.suptitle('Main window title')
     ax = fig.subplots(1, 1)
-    ax.set_title('bar graphs')
-    plot_bar_graphs(ax, data)
+    ax.set_title('X vs Y')
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    plot_histograms(ax, data)
     plt.show()
 
 
@@ -61,8 +55,8 @@ if __name__ == "__main__":
     dialog.setupUi(Qdialog)
 
     # Widget stuff
-    home.btnLEDOn.clicked.connect(LEDOn)
-    home.btnLEDOff.clicked.connect(LEDOff)
+    home.btnLEDOn.clicked.connect(lambda: LED('on'))
+    home.btnLEDOff.clicked.connect(lambda: LED('off'))
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)
     home.actionOpen.triggered.connect(SetNewIcon)

@@ -1,4 +1,5 @@
 {
+    "arduino": "~/scripts/home_arduino.py",
     "led state": "on",
     "pi": "alex@pi"
 }

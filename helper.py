@@ -1,6 +1,7 @@
 from subprocess import PIPE, Popen
 from easysettings import load_json_settings
 
+config = load_json_settings('config.json')
 
 def Ssh(host, command):
     """

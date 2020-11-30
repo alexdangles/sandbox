@@ -81,17 +81,6 @@ class Ui_Home(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.tabCtl)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(250, 70, 160, 80))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.content_plot = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.content_plot.setContentsMargins(0, 0, 0, 0)
-        self.content_plot.setObjectName("content_plot")
-        self.tableWidget = QtWidgets.QTableWidget(self.tabCtl)
-        self.tableWidget.setGeometry(QtCore.QRect(80, 180, 621, 511))
-        self.tableWidget.setRowCount(60)
-        self.tableWidget.setColumnCount(5)
-        self.tableWidget.setObjectName("tableWidget")
         self.tab1.addTab(self.tabCtl, "")
         self.gridLayout_2.addWidget(self.tab1, 0, 0, 1, 1)
         Home.setCentralWidget(self.centralwidget)
@@ -138,7 +127,7 @@ class Ui_Home(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(Home)
-        self.tab1.setCurrentIndex(0)
+        self.tab1.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Home)
 
     def retranslateUi(self, Home):
