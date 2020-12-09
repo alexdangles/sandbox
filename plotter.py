@@ -1,9 +1,7 @@
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 import matplotlib.style as style
 import numpy as np
-from matplotlib import rcParams, use
-from matplotlib import colors
+from matplotlib import use
 from matplotlib.figure import Figure
 
 use("Qt5Agg")
@@ -14,7 +12,6 @@ data = np.random.RandomState(96917002)
 class MyFigure(Figure):
     def __init__(self, *args, **kwargs):
         style.use('seaborn-whitegrid')
-        rcParams['toolbar'] = 'None'
         super().__init__(*args, **kwargs)
 
 
@@ -38,6 +35,7 @@ def plot_colored_sinusoidal_lines(ax):
         ax.plot(x, np.sin(x + s), '-')
     ax.set_xlim([x[0], x[-1]])
     return ax
+    
 
 
 def plot_bar_graphs(ax, data, min_value=5, max_value=25, nb_samples=20):
@@ -60,6 +58,7 @@ def plot_colored_circles(ax, data, nb_samples=15):
     the color cycle, because different styles may have different numbers
     of colors.
     """
+    
     for sty_dict, j in zip(plt.rcParams['axes.prop_cycle'], range(nb_samples)):
         ax.add_patch(plt.Circle(data.normal(scale=3, size=2),
                                 radius=1.0, color=sty_dict['color']))
@@ -105,7 +104,10 @@ def plot_histograms(ax, data, nb_samples=10000):
                 )
     '''
     return ax
-
+async def monitor(v, a):
+    print(a)
+    do: print(b)
+    
 
 if __name__ == "__main__":
     fig = plt.figure(FigureClass=MyFigure)

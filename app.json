@@ -1,0 +1,6 @@
+{
+    "app_name": "learning",
+    "arduino": "~/scripts/home_arduino.py",
+    "pi": "alex@pi",
+    "led_state": "on"
+}

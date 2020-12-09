@@ -1,5 +1,6 @@
 import turtle
 
-turtle.setx(42.5)
-turtle.sety(345.3)
+for a in range(100):    
+    turtle.forward(34)
+    turtle.backward(345.3)
 turtle.done()

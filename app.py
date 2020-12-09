@@ -1,19 +1,21 @@
 import os
 import random
 import sys
-from helper import *
+
 from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
 
 import res_rc
 from dialog import Ui_Dialog
+from helper import *
 from home import Ui_Home
 from plotter import *
 
-
-config = load_json_settings('config.json')
 config['pi'] = 'alex@pi'
+
+
 pi = config['pi']
 arduino = config['arduino']
+
 
 def SetNewIcon():
     i = QtGui.QIcon()
@@ -25,8 +27,10 @@ def LED(cmd):
     """
     Control LED lights
     """
-    print(Ssh(pi, '%s %s' % (arduino, cmd)))
-    config['led state'] = cmd
+    res=Ssh(pi, '%s %s' % (arduino, cmd))
+    print(res)
+    config['led_state'] = cmd
+    logger.error(res)
 
 
 def Plot():
@@ -61,9 +65,9 @@ if __name__ == "__main__":
     home.actionAbout.triggered.connect(Qdialog.show)
     home.actionOpen.triggered.connect(SetNewIcon)
     home.actionSave.triggered.connect(Plot)
-    
+
     # Load main window
     Qhome.setWindowTitle("Learning some Qt")
     Qhome.show()
     Qapp.exec_()
-    config.save(sort_keys=True)
+    config.save(sort_keys=False)
