@@ -1,6 +1,7 @@
 {
     "app_name": "learning",
+    "version": "1.0",
     "arduino": "~/scripts/home_arduino.py",
     "pi": "alex@pi",
-    "led_state": "on"
+    "led_state": "off"
 }

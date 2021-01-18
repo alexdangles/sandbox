@@ -12,7 +12,6 @@ from plotter import *
 
 config['pi'] = 'alex@pi'
 
-
 pi = config['pi']
 arduino = config['arduino']
 
@@ -28,9 +27,9 @@ def LED(cmd):
     Control LED lights
     """
     res=Ssh(pi, '%s %s' % (arduino, cmd))
-    print(res)
     config['led_state'] = cmd
-    logger.error(res)
+    log = Log('fucking')
+    log.Console('gugdsg')
 
 
 def Plot():
@@ -44,7 +43,6 @@ def Plot():
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     plot_histograms(ax, data)
-    plt.show()
 
 
 if __name__ == "__main__":
