@@ -28,8 +28,8 @@ def LED(cmd):
     """
     res=Ssh(pi, '%s %s' % (arduino, cmd))
     config['led_state'] = cmd
-    log = Log('fucking')
-    log.Console('gugdsg')
+    log = Log('fuker')
+    log.Console('test log, bitch!')
 
 
 def Plot():

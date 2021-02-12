@@ -1,2 +1,2 @@
 #!/bin/bash
-pyinstaller -wy --add-data 'config.json;.' app.py
+pyinstaller -wy --add-data 'app.json;.' app.py
