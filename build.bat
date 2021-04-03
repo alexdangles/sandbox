@@ -1,1 +1,5 @@
-pyinstaller -wy --add-data app.json;. app.py
+:: use console
+::pyinstaller -y --add-data app.json;. app.py
+
+:: no cosole
+pyinstaller -y --noconsole --add-data app.json;. app.py
