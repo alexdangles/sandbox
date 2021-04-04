@@ -1,28 +1,29 @@
-import logging, json
+import logging
+import json
 from subprocess import PIPE, Popen
 from easysettings import load_json_settings
 
 
-config = load_json_settings('app.json')
+config = load_json_settings('config.json')
 app_name = config['app_name']
 
 
 def Ssh(host, command):
-    """
-    Send shell command
+    """Send ssh command.
     """
     out, err = Popen(["ssh", "%s" % host, command],
                      stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
     if err == []:
-        return err
+        return err.decode().strip('\r\n')
     else:
-        return out
+        return out.decode().strip('\r\n')
+
 
 class Log():
+    """Log program data.
     """
-    Log program data
-    """
-    def __init__(self, name):         
+
+    def __init__(self, name):
         # Create an app logger
         self.log = logging.getLogger(name)
 
@@ -30,13 +31,13 @@ class Log():
         self.c_handler = logging.StreamHandler()
         self.f_handler = logging.FileHandler('%s.log' % name)
         self.c_handler.setLevel(logging.WARNING)
-        self.f_handler.setLevel(logging.ERROR)
+        self.f_handler.setLevel(logging.WARNING)
 
         # Create formatters and add it to handlers
         self.c_format = logging.Formatter('[%(levelname)s] %(message)s')
-        self.f_format = logging.Formatter( '%(asctime)s [%(levelname)s] %(message)s')
-        self.c_handler.setFormatter( self.c_format)
-        self.f_handler.setFormatter( self.f_format)
+        self.f_format = logging.Formatter('%(asctime)s %(message)s')
+        self.c_handler.setFormatter(self.c_format)
+        self.f_handler.setFormatter(self.f_format)
 
         # Add handlers to the logger
         self.log.addHandler(self.c_handler)
@@ -44,4 +45,6 @@ class Log():
 
     def Console(self, msg):
         self.log.warning(msg)
-        #log.error('This is an error')
+
+    def File(self, msg):
+        self.log.warning(msg)

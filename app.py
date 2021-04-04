@@ -10,44 +10,43 @@ from helper import *
 from home import Ui_Home
 from plotter import *
 
+# Default settings
 config['pi'] = 'alex@pi'
+config['arduino'] = '~/scripts/home_arduino.py'
 
+# Load saved settings (overrides defaults)
 pi = config['pi']
 arduino = config['arduino']
 
 
-def SetNewIcon():
+def SetIcon(icon):
     i = QtGui.QIcon()
-    i.addPixmap(QtGui.QPixmap(':/main/icons/alert round.png'))
+    i.addPixmap(QtGui.QPixmap(':/main/icons/%s' % icon))
+    return i
 
 
-def LED():
+def Arduino(cmd):
+    """Send command to Arduino.
+
+    Keyword arguments:
+    cmd: command to send
     """
-    Control LED lights
-    """
-    res=Ssh(pi, '%s %s' % (arduino, 'leds')).decode().strip('\r\n')
-    config['led_state'] = res
+    state = Ssh(pi, '%s %s' % (arduino, cmd))
+    config[cmd] = state
     config.save()
 
-def Laser():
-    """
-    Control Laser
-    """
-    res=Ssh(pi, '%s %s' % (arduino, 'laser')).decode().strip('\r\n')
-    config['laser_state'] = res
-    config.save()
 
 def Plot():
-    """
-    Plot something
+    """Plot something.
     """
     fig = plt.figure(FigureClass=MyFigure)
-    #fig.suptitle('Main window title')
+    fig.suptitle('Main window title')
     ax = fig.subplots(1, 1)
     ax.set_title('X vs Y')
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
-    plot_histograms(ax, data)
+    plot_histograms(ax, data, annotate=True)
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -63,15 +62,14 @@ if __name__ == '__main__':
     dialog.setupUi(Qdialog)
 
     # Link widgets to funtions
-    home.btnLED.clicked.connect(lambda: LED())
-    home.btnLaser.clicked.connect(lambda: Laser())
+    home.btnLED.clicked.connect(lambda: Arduino('leds'))
+    home.btnLaser.clicked.connect(lambda: Arduino('laser'))
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)
-    home.actionOpen.triggered.connect(SetNewIcon)
     home.actionSave.triggered.connect(Plot)
 
-# Load main window
-    Qhome.setWindowTitle('Learning some Qt')
+    # Load main window
+    Qhome.setWindowTitle(config['app_name'])
     Qhome.show()
     Qapp.exec_()
     config.save(sort_keys=False)

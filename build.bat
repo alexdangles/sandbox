@@ -1,5 +1,5 @@
-:: use console
-::pyinstaller -y --add-data app.json;. app.py
+:: one file
+:: pyinstaller -Fy --noconsole --add-data config.json;. app.py
 
 :: no cosole
-pyinstaller -y --noconsole --add-data app.json;. app.py
+pyinstaller -y --noconsole --add-data config.json;. app.py

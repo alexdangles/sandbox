@@ -1,0 +1,8 @@
+{
+    "app_name": "nothing much",
+    "version": "1.0",
+    "arduino": "~/scripts/home_arduino.py",
+    "pi": "alex@pi",
+    "leds": "LEDs are on",
+    "laser": "Laser is off"
+}

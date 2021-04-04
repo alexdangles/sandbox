@@ -81,7 +81,7 @@ def plot_image_and_patch(ax, data, size=(20, 20)):
     ax.set_yticks([])
 
 
-def plot_histograms(ax, data, nb_samples=10000):
+def plot_histograms(ax, data, nb_samples=10000, annotate=False):
     """Plot 4 histograms and a text annotation.
     """
     params = ((10, 10), (4, 12), (50, 12), (6, 55))
@@ -91,8 +91,8 @@ def plot_histograms(ax, data, nb_samples=10000):
                 alpha=0.8, density=True)
 
     # Add a small annotation.
-    '''
-    ax.annotate('Annotation', xy=(0.25, 4.25),
+    if annotate:
+        ax.annotate('Annotation', xy=(0.25, 4.25),
                 xytext=(0.9, 0.9), textcoords=ax.transAxes,
                 va="top", ha="right",
                 bbox=dict(boxstyle="round", alpha=0.2),
@@ -100,7 +100,6 @@ def plot_histograms(ax, data, nb_samples=10000):
                         arrowstyle="->",
                         connectionstyle="angle,angleA=-95,angleB=35,rad=10"),
                 )
-    '''
     return ax
 
 
