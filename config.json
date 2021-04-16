@@ -1,5 +1,5 @@
 {
-    "app_name": "nothing much",
+    "app_name": "Isengard",
     "version": "1.0",
     "arduino": "~/scripts/home_arduino.py",
     "pi": "alex@pi",

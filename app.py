@@ -27,25 +27,20 @@ def SetIcon(icon):
 
 def Arduino(cmd):
     """Send command to Arduino.
-
-    Keyword arguments:
-    cmd: command to send
     """
     state = Ssh(pi, '%s %s' % (arduino, cmd))
     config[cmd] = state
     config.save()
 
-
 def Plot():
     """Plot something.
     """
     fig = plt.figure(FigureClass=MyFigure)
-    fig.suptitle('Main window title')
     ax = fig.subplots(1, 1)
     ax.set_title('X vs Y')
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
-    plot_histograms(ax, data, annotate=True)
+    plot_scatter(ax, data)
     plt.show()
 
 

@@ -24,6 +24,10 @@
     <bold>true</bold>
    </font>
   </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/main/icons/phone.png</normaloff>:/main/icons/phone.png</iconset>
+  </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
   </property>
