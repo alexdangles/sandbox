@@ -1,8 +1,9 @@
 import os
 import random
 import sys
+import sqlite3
 
-from PyQt5 import QtCore, QtGui, QtNetwork, QtWidgets
+from PyQt5 import QtGui, QtCore, QtWidgets, QtWebEngineWidgets
 
 import res_rc
 from dialog import Ui_Dialog
@@ -13,10 +14,28 @@ from plotter import *
 # Default settings
 config['pi'] = 'alex@pi'
 config['arduino'] = '~/scripts/home_arduino.py'
+log = Log(config['logfile'])
 
 # Load saved settings (overrides defaults)
 pi = config['pi']
 arduino = config['arduino']
+
+
+class Ui_Web(QtWidgets.QMainWindow):
+
+    def __init__(self, *args, **kwargs):
+
+        super(Ui_Web, self).__init__(*args, **kwargs)
+
+        self.setWindowTitle('Mini Browser')
+        self.setGeometry(5, 30, 1355, 730)
+
+        self.browser = QtWebEngineWidgets.QWebEngineView()
+
+        self.setCentralWidget(self.browser)
+
+    def goTo(self, url):
+        self.browser.load(QtCore.QUrl('http://' + url))
 
 
 def SetIcon(icon):
@@ -31,6 +50,9 @@ def Arduino(cmd):
     state = Ssh(pi, '%s %s' % (arduino, cmd))
     config[cmd] = state
     config.save()
+    log.File('wow')
+    log.Console('neato')
+
 
 def Plot():
     """Plot something.
@@ -44,12 +66,18 @@ def Plot():
     plt.show()
 
 
+def Browser(url):
+    web.goTo(url)
+    web.show()
+
+
 if __name__ == '__main__':
     # Init main window
     Qapp = QtWidgets.QApplication(sys.argv)
     Qhome = QtWidgets.QMainWindow()
     home = Ui_Home()
     home.setupUi(Qhome)
+    web = Ui_Web()
 
     # Init dialog window
     Qdialog = QtWidgets.QDialog()
@@ -59,6 +87,8 @@ if __name__ == '__main__':
     # Link widgets to funtions
     home.btnLED.clicked.connect(lambda: Arduino('leds'))
     home.btnLaser.clicked.connect(lambda: Arduino('laser'))
+    home.btnWeb.clicked.connect(lambda: Browser('127.0.0.1:5000'))
+
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)
     home.actionSave.triggered.connect(Plot)

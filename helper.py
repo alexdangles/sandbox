@@ -23,19 +23,22 @@ class Log():
     """Log program data.
     """
 
-    def __init__(self, name):
+    def __init__(self, name=__name__):
         # Create an app logger
         self.log = logging.getLogger(name)
 
         # Create handlers
         self.c_handler = logging.StreamHandler()
         self.f_handler = logging.FileHandler('%s.log' % name)
-        self.c_handler.setLevel(logging.WARNING)
-        self.f_handler.setLevel(31)
+        logging.addLevelName(31, 'INF')
+        self.c_handler.setLevel('INF')
+        logging.addLevelName(32, 'LOG')
+        self.f_handler.setLevel('LOG')
 
         # Create formatters and add it to handlers
         self.c_format = logging.Formatter('[%(levelname)s] %(message)s')
-        self.f_format = logging.Formatter('%(asctime)s %(message)s', '%Y-%m-%d %H:%M:%S')
+        self.f_format = logging.Formatter(
+            '%(asctime)s %(message)s', '%Y-%m-%d %H:%M:%S')
         self.c_handler.setFormatter(self.c_format)
         self.f_handler.setFormatter(self.f_format)
 
@@ -44,7 +47,7 @@ class Log():
         self.log.addHandler(self.f_handler)
 
     def Console(self, msg):
-        self.log.warning(msg)
+        self.log.log(31, msg)
 
     def File(self, msg):
-        self.log.log(31, msg)
+        self.log.log(32, msg)

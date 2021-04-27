@@ -8,7 +8,7 @@ s = socket.socket()
 port = 8000
 
 # connect to the server on local computer
-s.connect(('127.0.0.1', port))
+s.connect(('localhost', port))
 s.send(b'hi there')
 # receive data from the server
 print(s.recv(1024))
