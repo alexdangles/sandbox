@@ -44,16 +44,6 @@ def SetIcon(icon):
     return i
 
 
-def Arduino(cmd):
-    """Send command to Arduino.
-    """
-    state = Ssh(pi, '%s %s' % (arduino, cmd))
-    config[cmd] = state
-    config.save()
-    log.File('wow')
-    log.Console('neato')
-
-
 def Plot():
     """Plot something.
     """
@@ -87,7 +77,7 @@ if __name__ == '__main__':
     # Link widgets to funtions
     home.btnLED.clicked.connect(lambda: Arduino('leds'))
     home.btnLaser.clicked.connect(lambda: Arduino('laser'))
-    home.btnWeb.clicked.connect(lambda: Browser('127.0.0.1:5000'))
+    home.btnWeb.clicked.connect(lambda: Browser('localhost:3000'))
 
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)
