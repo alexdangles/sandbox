@@ -4,7 +4,9 @@ from subprocess import PIPE, Popen
 from easysettings import load_json_settings
 
 
-config = load_json_settings('config.json')
+config = load_json_settings('app.json')
+pi = config['pi']
+arduino = config['arduino']
 app_name = config['app_name']
 
 
@@ -17,6 +19,15 @@ def Ssh(host, command):
         return err.decode().strip('\r\n')
     else:
         return out.decode().strip('\r\n')
+
+
+def Arduino(cmd):
+    """Send command to Arduino.
+    """
+    print(cmd)
+    state = Ssh(pi, '%s %s' % (arduino, cmd))
+    config[cmd] = state
+    config.save()
 
 
 class Log():

@@ -14,6 +14,7 @@ from plotter import *
 # Default settings
 config['pi'] = 'alex@pi'
 config['arduino'] = '~/scripts/home_arduino.py'
+cmds = config['cmds']
 log = Log(config['logfile'])
 
 # Load saved settings (overrides defaults)
@@ -60,6 +61,8 @@ def Browser(url):
     web.goTo(url)
     web.show()
 
+def Nett():
+    print('gjdlk')
 
 if __name__ == '__main__':
     # Init main window
@@ -69,15 +72,19 @@ if __name__ == '__main__':
     home.setupUi(Qhome)
     web = Ui_Web()
 
+    for i in range(len(cmds)):
+        btn = QtWidgets.QPushButton('btn%s' % cmds[i])            
+        btn.setText(cmds[i])
+        btn.clicked.connect(lambda: Arduino(cmds[i]))
+        home.layBtns.addWidget(btn)
+
     # Init dialog window
     Qdialog = QtWidgets.QDialog()
     dialog = Ui_Dialog()
     dialog.setupUi(Qdialog)
 
     # Link widgets to funtions
-    home.btnLED.clicked.connect(lambda: Arduino('leds'))
-    home.btnLaser.clicked.connect(lambda: Arduino('laser'))
-    home.btnWeb.clicked.connect(lambda: Browser('localhost:3000'))
+    home.btnWeb.clicked.connect(lambda: Browser('www.yahoo.com'))
 
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)

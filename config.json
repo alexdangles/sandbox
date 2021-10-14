@@ -1,9 +1,0 @@
-{
-    "app_name": "Isengard",
-    "version": "1.0",
-    "arduino": "~/scripts/home_arduino.py",
-    "pi": "alex@pi",
-    "leds": "",
-    "laser": "Laser is off",
-    "logfile": "app"
-}
