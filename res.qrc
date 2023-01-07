@@ -6,7 +6,7 @@
     <file>icons/back.png</file>
     <file>icons/calendar.png</file>
     <file>icons/cart.png</file>
-    <file alias="chat">icons/chat.png</file>
+    <file>icons/chat.png</file>
     <file>icons/check.png</file>
     <file>icons/clip.png</file>
     <file>icons/clock.png</file>

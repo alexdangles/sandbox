@@ -5,9 +5,9 @@ import sqlite3
 
 from PyQt5 import QtGui, QtCore, QtWidgets, QtWebEngineWidgets
 
-from ui_dialog import Ui_Dialog
+from dialog import Ui_Dialog
 from helper import *
-from ui_home import Ui_Home
+from home import Ui_Home
 from plotter import *
 
 # Default settings
@@ -43,7 +43,6 @@ def SetIcon(icon):
     i.addPixmap(QtGui.QPixmap(':/main/icons/%s' % icon))
     return i
 
-
 def Plot():
     """Plot something.
     """
@@ -60,8 +59,8 @@ def Browser(url):
     web.goTo(url)
     web.show()
 
-def Nett():
-    print('gjdlk')
+def LogSomething():
+    log.File("Fucker")
 
 if __name__ == '__main__':
     # Init main window
@@ -84,10 +83,10 @@ if __name__ == '__main__':
 
     # Link widgets to funtions
     home.btnWeb.clicked.connect(lambda: Browser('https://www.yahoo.com'))
-
+    home.actionOpen.triggered.connect(Plot)
+    home.actionSave.triggered.connect(LogSomething)
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)
-    home.actionSave.triggered.connect(Plot)
 
     # Load main window
     Qhome.setWindowTitle(config['app_name'])
