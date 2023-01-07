@@ -5,10 +5,9 @@ import sqlite3
 
 from PyQt5 import QtGui, QtCore, QtWidgets, QtWebEngineWidgets
 
-import res_rc
-from dialog import Ui_Dialog
+from ui_dialog import Ui_Dialog
 from helper import *
-from home import Ui_Home
+from ui_home import Ui_Home
 from plotter import *
 
 # Default settings
@@ -36,7 +35,7 @@ class Ui_Web(QtWidgets.QMainWindow):
         self.setCentralWidget(self.browser)
 
     def goTo(self, url):
-        self.browser.load(QtCore.QUrl('http://' + url))
+        self.browser.load(QtCore.QUrl(url))
 
 
 def SetIcon(icon):
@@ -84,7 +83,7 @@ if __name__ == '__main__':
     dialog.setupUi(Qdialog)
 
     # Link widgets to funtions
-    home.btnWeb.clicked.connect(lambda: Browser('www.yahoo.com'))
+    home.btnWeb.clicked.connect(lambda: Browser('https://www.yahoo.com'))
 
     home.actionQuit.triggered.connect(Qapp.exit)
     home.actionAbout.triggered.connect(Qdialog.show)
