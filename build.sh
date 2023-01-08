@@ -1,2 +1,3 @@
 #!/bin/sh
-pyinstaller --noconfirm --add-data app.json:. app.py
+pyinstaller --onefile --noconsole --noconfirm  app.py
+cp app.json dist
