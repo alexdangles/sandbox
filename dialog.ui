@@ -43,12 +43,15 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>47</width>
-     <height>14</height>
+     <width>251</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string>Question</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
  </widget>

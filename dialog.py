@@ -23,7 +23,8 @@ class Ui_Dialog(object):
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
         self.lblMessage = QtWidgets.QLabel(Dialog)
-        self.lblMessage.setGeometry(QtCore.QRect(20, 20, 47, 14))
+        self.lblMessage.setGeometry(QtCore.QRect(20, 20, 251, 51))
+        self.lblMessage.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.lblMessage.setObjectName("lblMessage")
 
         self.retranslateUi(Dialog)

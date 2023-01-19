@@ -4,22 +4,12 @@ import sys
 import sqlite3
 
 from PyQt5 import QtGui, QtCore, QtWidgets, QtWebEngineWidgets
-
-from dialog import Ui_Dialog
 from helper import *
-from home import Ui_Home
 from plotter import *
-
-# Default settings
-config['pi'] = 'alex@pi'
-config['arduino'] = '~/scripts/home_arduino.py'
-cmds = config['cmds']
 log = Log(config['logfile'])
 
-# Load saved settings (overrides defaults)
-pi = config['pi']
-arduino = config['arduino']
-
+from dialog import Ui_Dialog
+from home import Ui_Home
 
 class Ui_Web(QtWidgets.QMainWindow):
 

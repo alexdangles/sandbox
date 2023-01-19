@@ -50,7 +50,7 @@ class Ui_Home(object):
         self.btnWeb.setFlat(False)
         self.btnWeb.setObjectName("btnWeb")
         self.gridLayoutWidget = QtWidgets.QWidget(self.tabLED)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 20, 131, 771))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 20, 131, 281))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.layBtns = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.layBtns.setContentsMargins(0, 0, 0, 0)

@@ -8,7 +8,7 @@ config = load_json_settings('app.json')
 pi = config['pi']
 arduino = config['arduino']
 app_name = config['app_name']
-
+cmds = config['cmds']
 
 def Ssh(host, command):
     """Send ssh command.
