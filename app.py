@@ -50,7 +50,13 @@ def Browser(url):
     web.show()
 
 def LogSomething():
-    log.File("Fucker")
+    con = sqlite3.connect("app.db")
+    cur = con.cursor()
+    res = cur.execute("SELECT title FROM movie")
+    records = res.fetchall()
+    for row in records:
+        log.File(row[0])
+    con.close()
 
 if __name__ == '__main__':
     # Init main window
